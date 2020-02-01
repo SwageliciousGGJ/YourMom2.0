@@ -40,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
                 m_CanInteract = true;
             }
 
-            if (m_DestroyCounter >= 3.0f) {
+            if (m_DestroyCounter >= m_InRangeTemple.GetComponent<Temple>().m_TimeToDestroy) {
                 m_InRangeTemple.GetComponent<Temple>().Attack(this.gameObject);
                 m_IsDestroying = false;
                 m_CanInteract = true;

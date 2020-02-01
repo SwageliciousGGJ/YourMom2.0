@@ -13,6 +13,7 @@ public class Temple : MonoBehaviour {
     [Header("Temple variables")]
     public int m_CurrencyOverTime;
     public int m_ReceivedDestroyCurrency;
+    public float m_TimeToDestroy = 3;
 
     [Header("Health")]
     public TempleState m_TemplateState = TempleState.TempleState_Alive;
@@ -37,7 +38,7 @@ public class Temple : MonoBehaviour {
 
     void OnTriggerStay(Collider other) {
         if (other.gameObject.GetComponent<PlayerInteraction>()) {
-            if(!other.gameObject.GetComponent<PlayerInteraction>().m_IsDestroying && m_TemplateState == TempleState.TempleState_Alive) { }
+            if(!other.gameObject.GetComponent<PlayerInteraction>().m_IsDestroying && m_TemplateState == TempleState.TempleState_Alive)
                 other.gameObject.GetComponent<PlayerInteraction>().OnCanInteractWithObject(this.gameObject);
         }
     }
