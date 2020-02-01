@@ -8,9 +8,6 @@ public class TextToSpeech : MonoBehaviour
 {
     void Start()
     {
-        SpVoice voice;
-        voice = new SpVoice();
-        //voice.Speak("Knock knock knock, suck my big fat cock");
-        //voice.Speak("Kyle I think you got the Corona Virus");
+        
     }
 }

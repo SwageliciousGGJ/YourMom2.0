@@ -24,7 +24,7 @@ public class PlayerAnimations : MonoBehaviour
         Vector3 normalized = agent.velocity.normalized;
         float vectorLength = currentVelocity.magnitude;
         float speed = Mathf.Abs(vectorLength);
-        Debug.Log(currentVelocity);
+
         if(speed < -0.5f || speed > 0.5f)
         {
             playerAnimator.SetBool("isMoving", true);

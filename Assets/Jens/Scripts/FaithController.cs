@@ -20,7 +20,7 @@ public class FaithController : MonoBehaviour
         {
             m_Faith += temples[i].m_CurrencyOverTime;
         }
-        Debug.Log(m_Faith);
+
         yield return new WaitForSeconds(1);
         StartCoroutine(GetFaithFromTemples());
     }

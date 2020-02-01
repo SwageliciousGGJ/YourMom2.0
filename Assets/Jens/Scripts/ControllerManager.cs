@@ -136,4 +136,61 @@ public class ControllerManager : MonoBehaviour
         }
         return false;
     }
+
+    public static bool GetBButtonFromPlayer(int player)
+    {
+        switch (player)
+        {
+            case 0:
+                bool isKeyboard = FindObjectOfType<MoveTo>().m_KeyboardMovement;
+
+                if (isKeyboard)
+                    return Input.GetButtonDown("KeyboardB");
+
+                return Input.GetButtonDown("BJoystick");
+            case 1:
+                return Input.GetButtonDown("BJoystick2");
+            case 2:
+                return Input.GetButtonDown("BJoystick3");
+        }
+        return false;
+    }
+
+    public static bool GetBButtonDownFromPlayer(int player)
+    {
+        switch (player)
+        {
+            case 0:
+                bool isKeyboard = FindObjectOfType<MoveTo>().m_KeyboardMovement;
+
+                if (isKeyboard)
+                    return Input.GetButton("KeyboardB");
+
+                return Input.GetButton("BJoystick");
+            case 1:
+                return Input.GetButton("BJoystick2");
+            case 2:
+                return Input.GetButton("BJoystick3");
+        }
+        return false;
+    }
+
+    public static bool GetBButtonUpFromPlayer(int player)
+    {
+        switch (player)
+        {
+            case 0:
+                bool isKeyboard = FindObjectOfType<MoveTo>().m_KeyboardMovement;
+
+                if (isKeyboard)
+                    return Input.GetButtonUp("KeyboardB");
+
+                return Input.GetButtonUp("BJoystick");
+            case 1:
+                return Input.GetButtonUp("BJoystick2");
+            case 2:
+                return Input.GetButtonUp("BJoystick3");
+        }
+        return false;
+    }
 }

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ChickenVoice : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public AudioClip[] randomAudiosources;
     void Update()
     {
-        
+        if (ControllerManager.GetBButtonFromPlayer(GetComponent<MoveTo>().m_PlayerID))
+        {
+            GetComponent<AudioSource>().PlayOneShot(randomAudiosources[Random.Range(0, randomAudiosources.Length)]);
+        }
     }
 }
