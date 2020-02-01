@@ -35,7 +35,7 @@ GameObject:
   - component: {fileID: 8086481218198161951}
   m_Layer: 9
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: Duck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8086481218198161944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94dbe337493cf3649809c3c4355ba7bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c87175b79df80b48b4aaa1a957a0f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
@@ -160,9 +160,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8086481218198162146}
     m_Modifications:
+    - target: {fileID: 100002, guid: f841478a824047d438a0f1ee44bca430, type: 3}
+      propertyPath: m_TagString
+      value: Duck
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: f841478a824047d438a0f1ee44bca430, type: 3}
       propertyPath: m_Name
       value: Duck_HP
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: f841478a824047d438a0f1ee44bca430, type: 3}
+      propertyPath: m_TagString
+      value: Duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: f841478a824047d438a0f1ee44bca430, type: 3}
+      propertyPath: m_TagString
+      value: Duck
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: f841478a824047d438a0f1ee44bca430, type: 3}
       propertyPath: m_LocalPosition.x
