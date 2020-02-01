@@ -279,7 +279,7 @@ namespace Valve.VR.InteractionSystem
 			}
 
             yield return new WaitForSeconds(0.1f);
-            transform.localScale = new Vector3(3, 3, 3);
+            transform.localScale = new Vector3(7.5f, 7.5f, 7.5f);
         }
 
         protected virtual void Update()
