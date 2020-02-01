@@ -36,5 +36,14 @@ public class MoveTo : MonoBehaviour
         {
             m_CameraParent.Rotate(0, -1, 0);
         }
+
+        if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) > 0.9f)
+        {
+            m_CameraParent.Rotate(0, 1, 0);
+        }
+        if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) < -0.9f)
+        {
+            m_CameraParent.Rotate(0, -1, 0);
+        }
     }
 }

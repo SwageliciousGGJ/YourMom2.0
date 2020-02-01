@@ -185,8 +185,8 @@ InputManager:
     m_Name: KeyboardVertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: s
-    positiveButton: w
+    negativeButton: w
+    positiveButton: s
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -217,8 +217,8 @@ InputManager:
     m_Name: KeyboardRightStick
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: j
-    positiveButton: l
+    negativeButton: l
+    positiveButton: j
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
