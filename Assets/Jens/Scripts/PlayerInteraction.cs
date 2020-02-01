@@ -19,34 +19,29 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     void Update() {
-        if (ControllerManager.GetTriggerFromPlayer(GetComponent<MoveTo>().m_PlayerID) > 0.2f) {
+        if (ControllerManager.GetAButtonFromPlayer(GetComponent<MoveTo>().m_PlayerID)) {
             if (m_CanInteract) {
                 Interact();
             }
-            
         }
 
-        if (ControllerManager.GetTriggerFromPlayer(GetComponent<MoveTo>().m_PlayerID) > 0.2f)
-        {
+        if (ControllerManager.GetAButtonDownFromPlayer(GetComponent<MoveTo>().m_PlayerID)) {
             GetComponent<Animator>().SetBool("bounce", true);
         }
-        else
-        {
+        else {
             GetComponent<Animator>().SetBool("bounce", false);
         }
+
         if (m_IsDestroying) {
             m_DestroyCounter = m_DestroyCounter + Time.deltaTime;
 
-            if (Input.GetKeyUp(KeyCode.E)) {
+            if (ControllerManager.GetAButtonUpFromPlayer(GetComponent<MoveTo>().m_PlayerID)) {
                 m_IsDestroying = false;
                 m_CanInteract = true;
             }
-            else if (m_DestroyCounter >= 3.0f) {
-                if(m_InRangeTemple.GetComponent<Temple>().m_TemplateState == TempleState.TempleState_Alive)
-                    m_InRangeTemple.GetComponent<Temple>().Attack(this.gameObject);
-                else if (m_InRangeTemple.GetComponent<Temple>().m_TemplateState == TempleState.TempleState_Dead)
-                    m_InRangeTemple.GetComponent<Temple>().Heal();
 
+            if (m_DestroyCounter >= m_InRangeTemple.GetComponent<Temple>().m_TimeToDestroy) {
+                m_InRangeTemple.GetComponent<Temple>().Attack(this.gameObject);
                 m_IsDestroying = false;
                 m_CanInteract = true;
             }
@@ -69,6 +64,7 @@ public class PlayerInteraction : MonoBehaviour
     public void OnDisableInteractWithObject(GameObject a_Object) {
         m_InRangeTemple = null;
         m_InteractableText.enabled = false;
+        m_InteractableText.text = "Hold A to destroy";
         m_CanInteract = false;
     }
 }
