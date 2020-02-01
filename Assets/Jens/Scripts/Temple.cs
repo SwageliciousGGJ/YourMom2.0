@@ -15,6 +15,9 @@ public class Temple : MonoBehaviour {
     public int m_ReceivedDestroyCurrency;
     public float m_TimeToDestroy = 3;
 
+    [Header("Temple destroy variables")]
+    public ParticleSystem m_DestroyParticle;
+
     [Header("Health")]
     public TempleState m_TemplateState = TempleState.TempleState_Alive;
     private GameObject m_PlayerThatDestroys;
@@ -26,13 +29,19 @@ public class Temple : MonoBehaviour {
         m_PlayerThatDestroys.GetComponent<PlayerInteraction>().m_InteractableText.enabled = false;
 
         m_TemplateState = TempleState.TempleState_Dead;
-        GetComponent<MeshRenderer>().enabled = false;
+
+        if (m_DestroyParticle) {
+            m_DestroyParticle.Stop();
+        }
     }
 
     public void Heal() {
         if (m_TemplateState == TempleState.TempleState_Dead) {
             m_TemplateState = TempleState.TempleState_Alive;
-            GetComponent<MeshRenderer>().enabled = true;
+
+            if (m_DestroyParticle) {
+                m_DestroyParticle.Play();
+            }
         }
     }
 
