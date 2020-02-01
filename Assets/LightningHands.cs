@@ -54,7 +54,7 @@ public class LightningHands : MonoBehaviour
                 hittedTemple = hit.transform.gameObject;
                 Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.cyan);
 
-                amingTarget.transform.position = hit.point + new Vector3(0, 0.05f, 0);
+                amingTarget.transform.position = hit.point + new Vector3(0, 0.1f, 0);
             }
             else if (hit.transform.gameObject.tag == "Duck")
             {
