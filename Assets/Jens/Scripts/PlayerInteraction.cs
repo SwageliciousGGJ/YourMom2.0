@@ -19,13 +19,13 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetButtonDown("TriggerJoystick1")) {
+        if (ControllerManager.GetAButtonFromPlayer(GetComponent<MoveTo>().m_PlayerID)) {
             if (m_CanInteract) {
                 Interact();
             }
         }
 
-        if (ControllerManager.GetTriggerFromPlayer(GetComponent<MoveTo>().m_PlayerID) > 0.2f) {
+        if (ControllerManager.GetAButtonDownFromPlayer(GetComponent<MoveTo>().m_PlayerID)) {
             GetComponent<Animator>().SetBool("bounce", true);
         }
         else {
@@ -35,7 +35,7 @@ public class PlayerInteraction : MonoBehaviour
         if (m_IsDestroying) {
             m_DestroyCounter = m_DestroyCounter + Time.deltaTime;
 
-            if (Input.GetButtonUp("TriggerJoystick1")) {
+            if (ControllerManager.GetAButtonUpFromPlayer(GetComponent<MoveTo>().m_PlayerID)) {
                 m_IsDestroying = false;
                 m_CanInteract = true;
             }
