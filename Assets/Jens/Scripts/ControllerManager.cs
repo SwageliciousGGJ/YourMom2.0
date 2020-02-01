@@ -31,17 +31,45 @@ public class ControllerManager : MonoBehaviour
         return 0.0f;
     }
 
-    public static float GetTriggerFromPlayer(int player)
+    public static bool GetAButtonFromPlayer(int player)
     {
         switch (player)
         {
             case 0:
-                return Input.GetAxisRaw("TriggerJoystick1");
+                return Input.GetButtonDown("AJoystick");
             case 1:
-                return Input.GetAxisRaw("TriggerJoystick2");
+                return Input.GetButtonDown("AJoystick2");
             case 2:
-                return Input.GetAxisRaw("TriggerJoystick3");
+                return Input.GetButtonDown("AJoystick3");
         }
-        return 0.0f;
+        return false;
+    }
+
+    public static bool GetAButtonDownFromPlayer(int player)
+    {
+        switch (player)
+        {
+            case 0:
+                return Input.GetButton("AJoystick");
+            case 1:
+                return Input.GetButton("AJoystick2");
+            case 2:
+                return Input.GetButton("AJoystick3");
+        }
+        return false;
+    }
+
+    public static bool GetAButtonUpFromPlayer(int player)
+    {
+        switch (player)
+        {
+            case 0:
+                return Input.GetButtonUp("AJoystick");
+            case 1:
+                return Input.GetButtonUp("AJoystick2");
+            case 2:
+                return Input.GetButtonUp("AJoystick3");
+        }
+        return false;
     }
 }
