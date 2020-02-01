@@ -20,7 +20,11 @@ public class FaithController : MonoBehaviour
         {
             m_Faith += temples[i].m_CurrencyOverTime;
         }
+<<<<<<< HEAD
 
+=======
+        Debug.Log(m_Faith);
+>>>>>>> parent of 4a42969... FixedBeams
         yield return new WaitForSeconds(1);
         StartCoroutine(GetFaithFromTemples());
     }
