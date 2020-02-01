@@ -40,7 +40,6 @@ public class NPCMovement : MonoBehaviour
         {
             if (!timerActive)
             {
-                Debug.Log("Nice");
                 timerActive = true;
                 StartCoroutine(Wait());
             }
