@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Jens/Scenes/Menu.unity
+    guid: d1587edd0573ff24580ffe4555f8b685
+  - enabled: 1
+    path: Assets/Kyle/TestLevel_Jens.unity
+    guid: 7c8f8c4d274430a4cbed8610c7b95dd8
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9f16764891180c043a73a0fa29d75081,
       type: 2}
