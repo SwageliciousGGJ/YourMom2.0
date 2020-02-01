@@ -219,10 +219,10 @@ GameObject:
   m_Component:
   - component: {fileID: 447954}
   - component: {fileID: 11465950}
-  - component: {fileID: 1758680637}
   - component: {fileID: 1758680639}
   - component: {fileID: 1758680640}
   - component: {fileID: 1758680641}
+  - component: {fileID: 9149675618308395818}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -283,20 +283,6 @@ MonoBehaviour:
     actionPath: /actions/default/in/HeadsetOnHead
     needsReinit: 1
   allowToggleTo2D: 1
---- !u!114 &1758680637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57906ce94890efb4fa8d1c23fd614404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minimum: {fileID: 0}
-  maximum: {fileID: 0}
 --- !u!114 &1758680639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4cc7f8d60d87d48923887ae3f36f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageOnWrongAttack: 20
 --- !u!114 &1758680641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +322,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerPrefab: {fileID: 5613258581402035509, guid: 24d5f53e257212341ac750ec4a0bee82,
     type: 3}
+  m_SpawnPlaces: []
+--- !u!114 &9149675618308395818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a830293d79d1922489e940056956e0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimum: {fileID: 0}
+  maximum: {fileID: 0}
+  spawnLocations: []
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1091,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 2048
+  healthColor: {r: 1, g: 0, b: 0.6954007, a: 1}
+  lightningColor: {r: 0, g: 0.7525759, b: 1, a: 1}
 --- !u!1 &160596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1258,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 2048
+  healthColor: {r: 1, g: 0, b: 0.6954007, a: 1}
+  lightningColor: {r: 0, g: 0.7525759, b: 1, a: 1}
 --- !u!1 &165334
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class LightningHands : MonoBehaviour
     [SerializeField]
     bool canShoot = true;
     bool healing = false;
+    GameObject hittedEnemy = null,hittedTemple = null;
     [SerializeField]
     LayerMask mask;
 
@@ -50,35 +51,103 @@ public class LightningHands : MonoBehaviour
             {
                 healing = true;
                 Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.cyan);
+                hittedTemple = hit.transform.gameObject;
 
                 amingTarget.transform.position = hit.point + new Vector3(0, 0.05f, 0);
             }
+            else if(hit.transform.gameObject.tag == "Duck")
+            {
+                healing = false;
+                hittedEnemy = hit.transform.gameObject;
+                Debug.Log("DUCCCK");
+            }
         }
+
+
         if (canShoot)
         {
-            if (grabPinchAction.GetStateDown(handType))
+            if (grabPinchAction.GetStateDown(handType) || Input.GetKeyDown(KeyCode.Space))
             {
+
+                if (healing)
+                {
+                    if (lightningBolt.GetComponent<LineRenderer>() != null)
+                    {
+                        lightningBolt.GetComponent<LineRenderer>().startColor = healthColor;
+                        lightningBolt.GetComponent<LineRenderer>().endColor = healthColor;
+                    }
+                    Debug.Log("Healing");
+                }
+                else
+                {
+                    if (lightningBolt.GetComponent<LineRenderer>() != null)
+                    {
+                        lightningBolt.GetComponent<LineRenderer>().startColor = lightningColor;
+                        lightningBolt.GetComponent<LineRenderer>().endColor = lightningColor;
+                    }
+                    Debug.Log("Killing");
+
+                }
                 lightningBolt.gameObject.SetActive(true);
+
                 canShoot = false;
+
                 StartCoroutine(Reset());
+
             }
+        }
+    }
+
+    void Kill()
+    {
+        if (hittedEnemy != null)
+        {
+            if (hittedEnemy.GetComponent<NPCMovement>())
+            {
+                Debug.Log("NPC Killed!");
+
+                //Respawn this NPC and remove faith
+                if (FaithController.m_Faith >= FaithController.damage)
+                {
+                    FaithController.m_Faith -= FaithController.damage;
+                }
+                else
+                {
+                    FaithController.m_Faith = 0;
+                }
+                hittedEnemy.GetComponent<NPCMovement>().Respawn();
+
+            }
+            else if (hittedEnemy.GetComponent<PlayerInteraction>())
+            {
+                Debug.Log("PLayer Killed!");
+                hittedEnemy.GetComponent<PlayerInteraction>().Damage();
+            }
+        }
+        else
+        {
+            Debug.Log("Ground hit!");
+
+        }
+
+    }
+
+    void Heal()
+    {
+        if(hittedTemple)
+        {
+            hittedTemple.GetComponent<Temple>().Heal();
         }
     }
 
     IEnumerator Reset()
     {
-        if(healing)
-        {
-            GetComponent<LineRenderer>().SetColors(healthColor, healthColor);
-        }
-        else
-        {
-            GetComponent<LineRenderer>().SetColors(lightningColor, lightningColor);
-
-        }
+        Kill();
+        Heal();
         yield return new WaitForSeconds(1.0f);
         lightningBolt.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         canShoot = true;
+      
     }
 }

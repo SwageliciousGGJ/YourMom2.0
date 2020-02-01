@@ -25,6 +25,12 @@ public class NPCMovement : MonoBehaviour
 
     }
 
+    public void Respawn()
+    {
+        int size = FindObjectOfType<NPCManager>().spawnLocations.Length - 1;
+        transform.position = FindObjectOfType<NPCManager>().spawnLocations[Random.Range(0, size)].position;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +41,6 @@ public class NPCMovement : MonoBehaviour
         {
             if (!timerActive)
             {
-                Debug.Log("Nice");
                 timerActive = true;
                 StartCoroutine(Wait());
             }

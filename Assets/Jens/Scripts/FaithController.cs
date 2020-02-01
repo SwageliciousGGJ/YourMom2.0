@@ -5,10 +5,14 @@ using UnityEngine;
 public class FaithController : MonoBehaviour
 {
     public static int m_Faith;
+    [SerializeField]
+    private int damageOnWrongAttack = 20;
+    public static int damage;
 
     void Start()
     {
         m_Faith = 0;
+        damage = damageOnWrongAttack;
         StartCoroutine(GetFaithFromTemples());
     }
 
@@ -20,7 +24,6 @@ public class FaithController : MonoBehaviour
         {
             m_Faith += temples[i].m_CurrencyOverTime;
         }
-        Debug.Log(m_Faith);
         yield return new WaitForSeconds(1);
         StartCoroutine(GetFaithFromTemples());
     }
