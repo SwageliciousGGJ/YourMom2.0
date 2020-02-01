@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FaithController : MonoBehaviour
 {
-    private int m_Faith;
+    public static int m_Faith;
 
     void Start()
     {
