@@ -10,7 +10,6 @@ public class MoveTo : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(ControllerManager.GetTriggerFromPlayer(m_PlayerID));
         if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) < -0.2f)
         {
             GetComponent<NavMeshAgent>().destination = transform.position + transform.forward;
