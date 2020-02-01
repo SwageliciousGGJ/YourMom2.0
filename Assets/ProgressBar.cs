@@ -2,13 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [ExecuteInEditMode()]
 public class ProgressBar : MonoBehaviour
 {
+#if UNITY_EDITOR
+   [MenuItem("GameObject/UI Game/LinearProgressBar")]
+    public static void AddLinearProgressBar()
+    {
+        GameObject obj = Instantiate(Resources.Load<GameObject>("GameObject/UI Game/LinearProgressBar"));
+        obj.transform.SetParent(Selection.activeGameObject.transform, false);
+    }
+
+    public int minimum;
     public int maximum;
     public int current;
     public Image mask;
+    public Image fill;
+    public Text progressText;
+    public Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +39,9 @@ public class ProgressBar : MonoBehaviour
 
     void GetCurrentFill()
     {
-        float fillAmount = (float)current / (float)maximum;
+        float fillAmount = FaithController.m_Faith / 100;
         mask.fillAmount = fillAmount;
-
+        fill.color = color;
     }
 
 }
