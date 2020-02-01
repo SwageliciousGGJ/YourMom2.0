@@ -16,8 +16,12 @@ public class LightningHands : MonoBehaviour
     public Valve.VR.SteamVR_Input_Sources handType;
     [SerializeField]
     bool canShoot = true;
+    bool healing = false;
     [SerializeField]
     LayerMask mask;
+
+    [SerializeField]
+    Color healthColor, lightningColor;
 
     // Start is called before the first frame update
     // Update is called once per frame
@@ -33,13 +37,21 @@ public class LightningHands : MonoBehaviour
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
+                healing = false;
                 Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.cyan);
 
-                amingTarget.transform.position = hit.point + new Vector3(0, 0.01f, 0);
+                amingTarget.transform.position = hit.point + new Vector3(0, 0.05f, 0);
             }
-            else
+        }
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        {
+            if (hit.transform.gameObject.tag == "Temple")
             {
-                Debug.Log(hit.transform.gameObject.layer);
+                healing = true;
+                Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.cyan);
+
+                amingTarget.transform.position = hit.point + new Vector3(0, 0.05f, 0);
             }
         }
         if (canShoot)
@@ -55,6 +67,15 @@ public class LightningHands : MonoBehaviour
 
     IEnumerator Reset()
     {
+        if(healing)
+        {
+            GetComponent<LineRenderer>().SetColors(healthColor, healthColor);
+        }
+        else
+        {
+            GetComponent<LineRenderer>().SetColors(lightningColor, lightningColor);
+
+        }
         yield return new WaitForSeconds(1.0f);
         lightningBolt.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
