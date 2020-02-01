@@ -2446,8 +2446,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493744827943762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 1.66, z: 8}
-  m_LocalScale: {x: 2.8196387, y: 2.8196387, z: 2.8196387}
+  m_LocalPosition: {x: 10, y: -0.34, z: 8}
+  m_LocalScale: {x: 2.7979138, y: 2.7979138, z: 2.7979138}
   m_Children:
   - {fileID: 4508366977168302}
   m_Father: {fileID: 4441631656797602}
@@ -2511,7 +2511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4441631656797602}
   m_Layer: 0
-  m_Name: Temple
+  m_Name: OpenTemple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3696,8 +3696,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706255301257534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 4.4798, z: 8}
-  m_LocalScale: {x: 3.3835661, y: 3.3835661, z: 3.3835661}
+  m_LocalPosition: {x: 10, y: 2.4580998, z: 8}
+  m_LocalScale: {x: 3.3574963, y: 3.3574963, z: 3.3574963}
   m_Children: []
   m_Father: {fileID: 4441631656797602}
   m_RootOrder: 55
@@ -5285,7 +5285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90752942483032697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 0.5, z: 1.5}
+  m_LocalPosition: {x: 6, y: 0.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4441631656797602}
@@ -7598,7 +7598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3961211372567459026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 0.5, z: 14.5}
+  m_LocalPosition: {x: 6, y: 0.5, z: 14.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4441631656797602}
