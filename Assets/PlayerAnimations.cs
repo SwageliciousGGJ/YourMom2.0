@@ -14,7 +14,7 @@ public class PlayerAnimations : MonoBehaviour
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
-        agent = GetComponentInParent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -22,8 +22,9 @@ public class PlayerAnimations : MonoBehaviour
     {
         Vector3 currentVelocity = agent.velocity;
         Vector3 normalized = agent.velocity.normalized;
-        float vectorLength = normalized.magnitude;
+        float vectorLength = currentVelocity.magnitude;
         float speed = Mathf.Abs(vectorLength);
+        Debug.Log(currentVelocity);
         if(speed < -0.5f || speed > 0.5f)
         {
             playerAnimator.SetBool("isMoving", true);
