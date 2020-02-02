@@ -988,7 +988,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh258742
+  m_Name: pb_Mesh236036
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -2723,6 +2723,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: allowToggleTo2D
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 152138598, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: healthColor.r
       value: 1
@@ -2887,6 +2891,11 @@ PrefabInstance:
       propertyPath: m_SpawnPlaces.Array.data[16]
       value: 
       objectReference: {fileID: 739325391}
+    - target: {fileID: 1758680641, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_PlayerPrefab
+      value: 
+      objectReference: {fileID: 6511861417795663951, guid: eb50898fbb263954caca2f2c63ab94eb,
+        type: 3}
     - target: {fileID: 1965556728, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.02
@@ -4836,7 +4845,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh258950
+  m_Name: pb_Mesh236246
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:

@@ -24,9 +24,8 @@ public class Temple : MonoBehaviour {
 
     public void Attack(GameObject a_AttackObject) {
         m_PlayerThatDestroys = a_AttackObject;
-        m_PlayerThatDestroys.GetComponent<PlayerInteraction>().m_InteractableText.text = "";
         m_PlayerThatDestroys.GetComponent<SinglePlayerStats>().m_Points += m_ReceivedDestroyCurrency;
-        m_PlayerThatDestroys.GetComponent<PlayerInteraction>().m_InteractableText.enabled = false;
+        m_PlayerThatDestroys.GetComponent<PlayerInteraction>().m_InteractableImage.SetActive(false);
 
         m_TemplateState = TempleState.TempleState_Dead;
 
