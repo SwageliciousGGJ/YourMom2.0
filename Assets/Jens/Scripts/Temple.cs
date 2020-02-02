@@ -32,6 +32,8 @@ public class Temple : MonoBehaviour {
         if (m_DestroyParticle) {
             m_DestroyParticle.Stop();
         }
+
+        GetComponent<AudioSource>().Stop();
     }
 
     public void Heal() {
@@ -42,6 +44,8 @@ public class Temple : MonoBehaviour {
                 m_DestroyParticle.Play();
             }
         }
+
+        GetComponent<AudioSource>().Play();
     }
 
     void OnTriggerStay(Collider other) {
