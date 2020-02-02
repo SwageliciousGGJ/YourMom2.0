@@ -15,26 +15,35 @@ public class MoveTo : MonoBehaviour
         {
             GetComponent<NavMeshAgent>().destination = transform.position + transform.forward;
         }
-        if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) > 0.9f)
+        else if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) > 0.9f)
         {
             GetComponent<NavMeshAgent>().destination = transform.position + -transform.forward;
         }
+        else
+        {
+            GetComponent<NavMeshAgent>().destination = transform.position;
+        }
+
         if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            transform.Rotate(0, -5, 0);
+            GetComponent<NavMeshAgent>().destination = transform.position + -transform.right;
         }
-        if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) > 0.9f)
+        else if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            transform.Rotate(0, 5, 0);
+            GetComponent<NavMeshAgent>().destination = transform.position + transform.right;
+        }
+        else if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) < 0.9f && ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) > -0.9f)
+        {
+            GetComponent<NavMeshAgent>().destination = transform.position;
         }
 
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            m_CameraParent.Rotate(0, 5, 0);
+            transform.Rotate(0, 2.5f, 0);
         }
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            m_CameraParent.Rotate(0, -5, 0);
+            transform.Rotate(0, -2.5f, 0);
         }
 
         /*
