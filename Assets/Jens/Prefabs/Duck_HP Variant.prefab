@@ -115,6 +115,10 @@ PrefabInstance:
       propertyPath: m_ParticleBounce
       value: 
       objectReference: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+    - target: {fileID: 784336564, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_WalkAudio
+      value: 
+      objectReference: {fileID: 8629158270973268813}
     - target: {fileID: 1865811279566200, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_Name
       value: Duck_HP Variant
@@ -133,15 +137,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187506985088222, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21559858
+      value: 51.7431
       objectReference: {fileID: 0}
     - target: {fileID: 4187506985088222, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59999996
+      value: 8.380957
       objectReference: {fileID: 0}
     - target: {fileID: 4187506985088222, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1842775
+      value: 66.7466
       objectReference: {fileID: 0}
     - target: {fileID: 4187506985088222, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_LocalRotation.x

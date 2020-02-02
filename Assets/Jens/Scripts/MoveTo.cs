@@ -8,6 +8,7 @@ public class MoveTo : MonoBehaviour
     public int m_PlayerID;
     public bool m_KeyboardMovement;
     public Transform m_CameraParent;
+    public AudioSource m_WalkAudio;
 
     void Update()
     {
@@ -46,15 +47,15 @@ public class MoveTo : MonoBehaviour
             transform.Rotate(0, -2.5f, 0);
         }
 
-        /*
         if (GetComponent<Animator>().GetBool("isMoving"))
         {
-            GetComponentInChildren<AudioSource>().Play();
+            if(!m_WalkAudio.isPlaying)
+                m_WalkAudio.Play();
         }
         else
         {
-            GetComponentInChildren<AudioSource>().Stop();
+            m_WalkAudio.Stop();
         }
-        */
+        
     }
 }
