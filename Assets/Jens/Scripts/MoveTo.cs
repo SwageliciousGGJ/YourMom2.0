@@ -37,6 +37,7 @@ public class MoveTo : MonoBehaviour
             m_CameraParent.Rotate(0, -5, 0);
         }
 
+        /*
         if (GetComponent<Animator>().GetBool("isMoving"))
         {
             GetComponentInChildren<AudioSource>().Play();
@@ -45,5 +46,6 @@ public class MoveTo : MonoBehaviour
         {
             GetComponentInChildren<AudioSource>().Stop();
         }
+        */
     }
 }

@@ -15,6 +15,9 @@ public class PlayerInteraction : MonoBehaviour
     public Text m_FaithImageFillText;
     public TextMeshProUGUI m_ScoreText;
 
+    [Header("Sounds")]
+    public AudioClip m_CoinSound;
+
     private GameObject m_InRangeTemple;
     private bool m_CanInteract = false;
 
@@ -95,6 +98,7 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     IEnumerator SpawnPointUIPrefab() {
+        GetComponent<AudioSource>().PlayOneShot(m_CoinSound);
         GameObject obj = Instantiate(m_PointScoreUIPrefab, m_Canvas.transform);
         obj.GetComponent<TextMeshPro>().text = "+ " + m_InRangeTemple.GetComponent<Temple>().m_ReceivedDestroyCurrency;
         obj.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);

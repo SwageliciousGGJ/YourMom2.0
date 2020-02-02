@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_ScoreText
       value: 
       objectReference: {fileID: 1647508218958990230}
+    - target: {fileID: 784336562, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_CoinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 588198fa1f2e9794a9c603fb0fb2a8d3, type: 3}
     - target: {fileID: 1865811279566200, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_Name
       value: Duck_HP Variant
@@ -154,6 +158,16 @@ PrefabInstance:
     - target: {fileID: 4187506985088222, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524408275872961319, guid: 469150d4115a18740ad5cf70fa05b89e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524408275872961319, guid: 469150d4115a18740ad5cf70fa05b89e,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
