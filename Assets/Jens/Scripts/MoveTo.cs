@@ -21,20 +21,31 @@ public class MoveTo : MonoBehaviour
         }
         if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            transform.Rotate(0, -1, 0);
+            transform.Rotate(0, -5, 0);
         }
         if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            transform.Rotate(0, 1, 0);
+            transform.Rotate(0, 5, 0);
         }
 
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            m_CameraParent.Rotate(0, 1, 0);
+            m_CameraParent.Rotate(0, 5, 0);
         }
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            m_CameraParent.Rotate(0, -1, 0);
+            m_CameraParent.Rotate(0, -5, 0);
         }
+
+        /*
+        if (GetComponent<Animator>().GetBool("isMoving"))
+        {
+            GetComponentInChildren<AudioSource>().Play();
+        }
+        else
+        {
+            GetComponentInChildren<AudioSource>().Stop();
+        }
+        */
     }
 }
