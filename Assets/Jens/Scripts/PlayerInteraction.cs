@@ -75,7 +75,7 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("Dead");
         }
 
-        Transform[] SpawnPlaces = GetComponent<ControllerConnection>().m_SpawnPlaces;
+        Transform[] SpawnPlaces = FindObjectOfType<ControllerConnection>().m_SpawnPlaces;
 
         Transform spawn = SpawnPlaces[Random.Range(0, SpawnPlaces.Length)];
 

@@ -117,9 +117,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734041641, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 15927
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041641, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_TargetEye
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041641, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.108137205
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.001266107
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.008925762
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9940951
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 12.417001
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 734041642, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.0250001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504209455375708, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1865811279566200, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_Name
       value: Duck_HP Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865811279566200, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
+      propertyPath: m_TagString
+      value: Duck
       objectReference: {fileID: 0}
     - target: {fileID: 4187506985088222, guid: 469150d4115a18740ad5cf70fa05b89e, type: 3}
       propertyPath: m_LocalPosition.x

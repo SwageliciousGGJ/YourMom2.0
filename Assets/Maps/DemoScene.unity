@@ -2887,6 +2887,11 @@ PrefabInstance:
       propertyPath: m_SpawnPlaces.Array.data[16]
       value: 
       objectReference: {fileID: 739325391}
+    - target: {fileID: 1758680641, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_PlayerPrefab
+      value: 
+      objectReference: {fileID: 6511861417795663951, guid: eb50898fbb263954caca2f2c63ab94eb,
+        type: 3}
     - target: {fileID: 1965556728, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.02
