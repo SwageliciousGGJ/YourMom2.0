@@ -988,7 +988,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh258742
+  m_Name: pb_Mesh236036
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -2722,6 +2722,10 @@ PrefabInstance:
     - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: allowToggleTo2D
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152138598, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: healthColor.r
@@ -4841,7 +4845,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh258950
+  m_Name: pb_Mesh236246
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:

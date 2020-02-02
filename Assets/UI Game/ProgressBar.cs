@@ -48,7 +48,7 @@ public class ProgressBar : MonoBehaviour
 
     void GetCurrentFill()
     {
-        float fillAmount = FaithController.m_Faith / 100;
+        float fillAmount = FaithController.m_Faith / maximum;
         mask.fillAmount = fillAmount;
         fill.color = color;
     }
