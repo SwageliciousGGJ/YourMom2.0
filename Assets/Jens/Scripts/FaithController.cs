@@ -5,6 +5,7 @@ using UnityEngine;
 public class FaithController : MonoBehaviour
 {
     public static int m_Faith;
+    public static int m_MaxFaith = 100;
     [SerializeField]
     private int damageOnWrongAttack = 20;
     public static int damage;   
