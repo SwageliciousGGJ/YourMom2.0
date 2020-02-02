@@ -21,20 +21,20 @@ public class MoveTo : MonoBehaviour
         }
         if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            transform.Rotate(0, -5, 0);
+            GetComponent<NavMeshAgent>().destination = transform.position + -transform.right;
         }
         if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            transform.Rotate(0, 5, 0);
+            GetComponent<NavMeshAgent>().destination = transform.position + transform.right;
         }
 
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            m_CameraParent.Rotate(0, 5, 0);
+            transform.Rotate(0, 5, 0);
         }
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            m_CameraParent.Rotate(0, -5, 0);
+            transform.Rotate(0, -5, 0);
         }
 
         /*
