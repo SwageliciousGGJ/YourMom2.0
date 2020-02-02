@@ -22,7 +22,7 @@ public class SpotlightScript : MonoBehaviour
         {
             if (spotLight)
             {
-                spotLight.transform.position = hit.point + new Vector3(0, 3, 0);
+                spotLight.transform.position = hit.point + new Vector3(0, 10, 0);
             }
            // Debug.Log("Hitted Object " + hit.transform.gameObject.name);
         }
