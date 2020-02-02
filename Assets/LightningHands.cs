@@ -132,7 +132,7 @@ public class LightningHands : MonoBehaviour
     {
         if (hittedTemple)
         {
-            hittedTemple.GetComponent<Temple>().Heal();
+            hittedTemple.GetComponentInChildren<Temple>().Heal();
         }
     }
 

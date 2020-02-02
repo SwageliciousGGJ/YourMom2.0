@@ -18,6 +18,9 @@ public class Temple : MonoBehaviour {
     [Header("Temple destroy variables")]
     public ParticleSystem m_DestroyParticle;
 
+    [Header("Temple Sounds")]
+    public AudioClip m_SoundCracking;
+
     [Header("Health")]
     public TempleState m_TemplateState = TempleState.TempleState_Alive;
     private GameObject m_PlayerThatDestroys;
@@ -32,6 +35,9 @@ public class Temple : MonoBehaviour {
         if (m_DestroyParticle) {
             m_DestroyParticle.Stop();
         }
+
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().PlayOneShot(m_SoundCracking);
     }
 
     public void Heal() {
@@ -42,6 +48,8 @@ public class Temple : MonoBehaviour {
                 m_DestroyParticle.Play();
             }
         }
+
+        GetComponent<AudioSource>().Play();
     }
 
     void OnTriggerStay(Collider other) {
