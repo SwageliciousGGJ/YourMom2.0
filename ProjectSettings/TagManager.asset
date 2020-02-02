@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Temple
   - Duck
+  - Kill
   layers:
   - Default
   - TransparentFX

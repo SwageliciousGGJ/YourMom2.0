@@ -825,7 +825,7 @@ namespace Valve.VR.InteractionSystem
                 hoverLayerMask &= ~(1 << this.gameObject.layer); //ignore self for hovering
 
             // allocate array for colliders
-            overlappingColliders = new Collider[ColliderArraySize];
+            //overlappingColliders = new Collider[ColliderArraySize];
 
             // We are a "no SteamVR fallback hand" if we have this camera set
             // we'll use the right mouse to look around and left mouse to interact
@@ -894,9 +894,12 @@ namespace Valve.VR.InteractionSystem
             bool foundCloser = false;
 
             // null out old vals
-            for (int i = 0; i < overlappingColliders.Length; ++i)
+            if (overlappingColliders != null)
             {
-                overlappingColliders[i] = null;
+                for (int i = 0; i < overlappingColliders.Length; ++i)
+                {
+                    overlappingColliders[i] = null;
+                }
             }
 
             int numColliding = Physics.OverlapSphereNonAlloc(hoverPosition, hoverRadius, overlappingColliders, hoverLayerMask.value);
@@ -908,59 +911,62 @@ namespace Valve.VR.InteractionSystem
             int iActualColliderCount = 0;
 
             // Pick the closest hovering
-            for (int colliderIndex = 0; colliderIndex < overlappingColliders.Length; colliderIndex++)
+            if (overlappingColliders != null)
             {
-                Collider collider = overlappingColliders[colliderIndex];
-
-                if (collider == null)
-                    continue;
-
-                Interactable contacting = collider.GetComponentInParent<Interactable>();
-
-                // Yeah, it's null, skip
-                if (contacting == null)
-                    continue;
-
-                // Ignore this collider for hovering
-                IgnoreHovering ignore = collider.GetComponent<IgnoreHovering>();
-                if (ignore != null)
+                for (int colliderIndex = 0; colliderIndex < overlappingColliders.Length; colliderIndex++)
                 {
-                    if (ignore.onlyIgnoreHand == null || ignore.onlyIgnoreHand == this)
-                    {
+                    Collider collider = overlappingColliders[colliderIndex];
+
+                    if (collider == null)
                         continue;
-                    }
-                }
 
-                // Can't hover over the object if it's attached
-                bool hoveringOverAttached = false;
-                for (int attachedIndex = 0; attachedIndex < attachedObjects.Count; attachedIndex++)
-                {
-                    if (attachedObjects[attachedIndex].attachedObject == contacting.gameObject)
+                    Interactable contacting = collider.GetComponentInParent<Interactable>();
+
+                    // Yeah, it's null, skip
+                    if (contacting == null)
+                        continue;
+
+                    // Ignore this collider for hovering
+                    IgnoreHovering ignore = collider.GetComponent<IgnoreHovering>();
+                    if (ignore != null)
                     {
-                        hoveringOverAttached = true;
-                        break;
+                        if (ignore.onlyIgnoreHand == null || ignore.onlyIgnoreHand == this)
+                        {
+                            continue;
+                        }
                     }
-                }
 
-                if (hoveringOverAttached)
-                    continue;
+                    // Can't hover over the object if it's attached
+                    bool hoveringOverAttached = false;
+                    for (int attachedIndex = 0; attachedIndex < attachedObjects.Count; attachedIndex++)
+                    {
+                        if (attachedObjects[attachedIndex].attachedObject == contacting.gameObject)
+                        {
+                            hoveringOverAttached = true;
+                            break;
+                        }
+                    }
 
-                // Best candidate so far...
-                float distance = Vector3.Distance(contacting.transform.position, hoverPosition);
-                //float distance = Vector3.Distance(collider.bounds.center, hoverPosition);
-                bool lowerPriority = false;
-                if (closestInteractable != null)
-                { // compare to closest interactable to check priority
-                    lowerPriority = contacting.hoverPriority < closestInteractable.hoverPriority;
+                    if (hoveringOverAttached)
+                        continue;
+
+                    // Best candidate so far...
+                    float distance = Vector3.Distance(contacting.transform.position, hoverPosition);
+                    //float distance = Vector3.Distance(collider.bounds.center, hoverPosition);
+                    bool lowerPriority = false;
+                    if (closestInteractable != null)
+                    { // compare to closest interactable to check priority
+                        lowerPriority = contacting.hoverPriority < closestInteractable.hoverPriority;
+                    }
+                    bool isCloser = (distance < closestDistance);
+                    if (isCloser && !lowerPriority)
+                    {
+                        closestDistance = distance;
+                        closestInteractable = contacting;
+                        foundCloser = true;
+                    }
+                    iActualColliderCount++;
                 }
-                bool isCloser = (distance < closestDistance);
-                if (isCloser && !lowerPriority)
-                {
-                    closestDistance = distance;
-                    closestInteractable = contacting;
-                    foundCloser = true;
-                }
-                iActualColliderCount++;
             }
 
             if (showDebugInteractables && foundCloser)

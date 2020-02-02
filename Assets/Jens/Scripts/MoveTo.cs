@@ -8,6 +8,7 @@ public class MoveTo : MonoBehaviour
     public int m_PlayerID;
     public bool m_KeyboardMovement;
     public Transform m_CameraParent;
+    public AudioSource m_WalkAudio;
 
     void Update()
     {
@@ -15,37 +16,46 @@ public class MoveTo : MonoBehaviour
         {
             GetComponent<NavMeshAgent>().destination = transform.position + transform.forward;
         }
-        if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) > 0.9f)
+        else if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) > 0.9f)
         {
             GetComponent<NavMeshAgent>().destination = transform.position + -transform.forward;
         }
+        else
+        {
+            GetComponent<NavMeshAgent>().destination = transform.position;
+        }
+
         if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) < -0.9f)
         {
             GetComponent<NavMeshAgent>().destination = transform.position + -transform.right;
         }
-        if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) > 0.9f)
+        else if (ControllerManager.GetHorizontalAxisFromPlayer(m_PlayerID) > 0.9f)
         {
             GetComponent<NavMeshAgent>().destination = transform.position + transform.right;
+        }
+        else if (ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) < 0.9f && ControllerManager.GetVerticalAxisFromPlayer(m_PlayerID) > -0.9f)
+        {
+            GetComponent<NavMeshAgent>().destination = transform.position;
         }
 
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) > 0.9f)
         {
-            transform.Rotate(0, 5, 0);
+            transform.Rotate(0, 2.5f, 0);
         }
         if (ControllerManager.GetHorizontalRightStickAxisFromPlayer(m_PlayerID) < -0.9f)
         {
-            transform.Rotate(0, -5, 0);
+            transform.Rotate(0, -2.5f, 0);
         }
 
-        /*
         if (GetComponent<Animator>().GetBool("isMoving"))
         {
-            GetComponentInChildren<AudioSource>().Play();
+            if(!m_WalkAudio.isPlaying)
+                m_WalkAudio.Play();
         }
         else
         {
-            GetComponentInChildren<AudioSource>().Stop();
+            m_WalkAudio.Stop();
         }
-        */
+        
     }
 }

@@ -14,6 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     public Image m_FaithImageFill;
     public Text m_FaithImageFillText;
     public TextMeshProUGUI m_ScoreText;
+    public GameObject m_ParticleBounce;
 
     [Header("Sounds")]
     public AudioClip m_CoinSound;
@@ -104,5 +105,11 @@ public class PlayerInteraction : MonoBehaviour
         obj.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(1);
         Destroy(obj);
+    }
+
+    public void OnBouncePrefab()
+    {
+        GameObject prefab = Instantiate(m_ParticleBounce, transform.position, Quaternion.Euler(0.5f, 0.5f, 0.5f));
+        m_ParticleBounce.GetComponent<ParticleSystem>().Play();
     }
 }
