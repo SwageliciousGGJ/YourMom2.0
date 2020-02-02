@@ -12,12 +12,15 @@ public class LightningProjectile : MonoBehaviour
     public bool hasBeenFired = false;
     [SerializeField]
     public LightningHands parent;
+    public ParticleSystem ExplodingChicken;
+
+
     // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
-        if(!hasBeenFired)
+        if (!hasBeenFired)
         {
             GetComponent<Rigidbody>().isKinematic = true;
             transform.position = spawn.position;
@@ -48,7 +51,7 @@ public class LightningProjectile : MonoBehaviour
         hasBeenFired = false;
         parent.canShoot = true;
         GetComponent<Rigidbody>().isKinematic = true;
-        if(collision.gameObject.tag == "Duck")
+        if (collision.gameObject.tag == "Duck")
         {
             GameObject hittedEnemy = collision.gameObject;
             if (hittedEnemy.GetComponent<NPCMovement>())
@@ -64,22 +67,29 @@ public class LightningProjectile : MonoBehaviour
                 {
                     FaithController.m_Faith = 0;
                 }
+                hittedEnemy.GetComponent<NPCMovement>().Explode();
                 hittedEnemy.GetComponent<NPCMovement>().Respawn();
 
             }
             else if (hittedEnemy.GetComponent<PlayerInteraction>())
             {
-                Debug.Log("PLayer Killed!");
+                Debug.Log("Player Killed!");
+                Explode();
                 hittedEnemy.GetComponent<PlayerInteraction>().Damage();
             }
         }
-        else if(collision.gameObject.tag == "Temple")
+        else if (collision.gameObject.tag == "Temple")
         {
-            if(collision.gameObject.GetComponentInChildren<Temple>())
+            if (collision.gameObject.GetComponentInChildren<Temple>())
             {
                 collision.gameObject.GetComponentInChildren<Temple>().Heal();
             }
         }
         gameObject.SetActive(false);
+    }
+    public void Explode()
+    {
+        Instantiate(ExplodingChicken);
+        ExplodingChicken.Play();
     }
 }

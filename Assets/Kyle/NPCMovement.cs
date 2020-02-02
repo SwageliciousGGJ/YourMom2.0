@@ -12,6 +12,8 @@ public class NPCMovement : MonoBehaviour
     bool timerActive = false;
     [SerializeField]
     Animator animator;
+    public ParticleSystem ExplodingChicken;
+    Vector3 endLocation;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,10 @@ public class NPCMovement : MonoBehaviour
             destination = agent.destination;
         }
 
+        if (Input.GetKeyDown (KeyCode.P))
+        {
+            Explode();
+        }
     }
 
     private void RecalculatePath()
@@ -70,7 +76,11 @@ public class NPCMovement : MonoBehaviour
             RecalculatePath();
         }
     }
-
+    public void Explode()
+    {
+        Instantiate(ExplodingChicken);
+        ExplodingChicken.Play();
+    }
     IEnumerator Wait()
     {
         if (animator)
