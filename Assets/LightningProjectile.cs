@@ -31,7 +31,7 @@ public class LightningProjectile : MonoBehaviour
                     transform.gameObject.layer = LayerMask.NameToLayer("Both");
             }
             GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Rigidbody>().AddForce(1000 * transform.forward);
+            GetComponent<Rigidbody>().AddForce(500 * transform.forward);
         }
     }
 
@@ -41,13 +41,11 @@ public class LightningProjectile : MonoBehaviour
         transform.position = spawn.position;
         transform.LookAt(lookAtTransform);
         GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<Rigidbody>().AddForce(1000 * transform.forward);
+        GetComponent<Rigidbody>().AddForce(500 * transform.forward);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        hasBeenFired = false;
-        parent.canShoot = true;
-        GetComponent<Rigidbody>().isKinematic = true;
+      
         if(collision.gameObject.tag == "Duck")
         {
             GameObject hittedEnemy = collision.gameObject;
@@ -80,6 +78,11 @@ public class LightningProjectile : MonoBehaviour
                 collision.gameObject.GetComponentInChildren<Temple>().Heal();
             }
         }
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        Debug.Log(collision.gameObject.name);
+        hasBeenFired = false;
+        parent.canShoot = true;
         gameObject.SetActive(false);
     }
 }

@@ -78,6 +78,8 @@ namespace Valve.VR.InteractionSystem
         {
             rigidbody = GetComponent<Rigidbody>();
             rigidbody.maxAngularVelocity = 50;
+            rigidbody.isKinematic = true;
+           // GetComponent<Collider>().enabled = false;
         }
 
         private void Start()
